@@ -1,0 +1,26 @@
+---
+title: "esquisse"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+library(esquisse)
+library(RColorBrewer)
+```
+
+```{r}
+esquisse::esquisser(iris)
+```
+
+```{r}
+ggplot(iris) +
+ aes(x = Sepal.Length, y = Sepal.Width, colour = Species) +
+ geom_point(size = 1.7) +
+ scale_color_brewer(palette = "Pastel2") +
+ labs(x = "sepal length", y = "sepal width", title = "Goal 1 ", caption = "stat 210") +
+ theme_dark()
+```

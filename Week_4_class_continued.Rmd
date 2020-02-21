@@ -1,0 +1,47 @@
+---
+title: "Week5_class_activities"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+just because you can do it doesnt mean you want to with visualization(color shape size etc)
+## Facets
+subplots that display subsets
+- everything on the same scale so you can make comparison still
+many ways to do it
+2 things
+- assign the ggplot to a letter
+  q <- [code]   this makes it so when you want to modify you don't have to type it all again
+  
+```{r}
+q <- ggplot(mpg) + geom_point(aes(x = displ, y = hwy))
+```
+```{r}
+q + facet_grid(. ~ cyl)
+```
+
+```{r}
+q + facet_grid(drv ~ .)
+```
+
+```{r}
+q + facet_grid(drv ~ cyl)
+```
+
+```{r}
+q + facet_wrap(~ class)
+```
+
+```{r}
+ggplot(mpg) + geom_bar(aes(x = class, fill = class))
+```
+
+```{r}
+
+
+
+
+

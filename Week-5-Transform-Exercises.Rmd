@@ -1,0 +1,91 @@
+---
+title: "Transform Data"
+output: html_notebook
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment="")
+library(tidyverse)
+# install.packages("babynames")
+library(babynames)
+```
+
+
+# dplyr
+```{r}
+ggplot(data = babynames) + 
+  geom_line(aes(x = year, y = prop))
+```
+
+## Your Turn 1
+
+Alter the code to select just the `n` column:
+
+```{r}
+select(babynames, n)
+```
+can do a range with a :
+can do everything except with -
+can do everything that starts with c with starts_with("c")
+  or ends with
+contains
+one_of
+num_range
+    
+## Quiz
+
+Which of these is NOT a way to select the `name` and `n` columns together?
+ ends with would not include name because name does not end with n
+
+```{r}
+select(babynames, -c(year, sex, prop))
+select(babynames, name:n)
+select(babynames, starts_with("n"))
+select(babynames, ends_with("n"))
+```
+
+## Your Turn 2
+
+Use `filter`, `babynames`, and the logical operators to find:
+
+* All of the names where prop is greater than or equal to 0.08  
+* All of the children named "Sea"  
+
+```{r}
+filter(babynames, name=="Garrett")
+
+```
+
+## Your Turn 3
+
+Use Boolean operators to return only the rows that contain:
+
+* _Boys_ named Sue  
+* Names that were used by exactly 5 or 6 children in 1880  
+* Names that are one of Acura, Lexus, or Yugo
+
+```{r}
+filter(babynames, sex=="M"& name=="Sue")
+filter(babynames, xor(5,6))
+```
+
+## Help Me
+
+What is the smallest value of n?
+What is the largest?
+
+```{r}
+
+```
+
+
+***
+
+# Take aways
+
+* Extract variables with `select()`  
+* Extract cases with `filter()`  
+* Arrange cases, with `arrange()`  
+
+
